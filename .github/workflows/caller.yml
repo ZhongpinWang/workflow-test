@@ -22,10 +22,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          curl \
-            --request POST \
+          curl --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/callee/dispatches \
             --header 'accept: application/vnd.github+json' \ 
             --header 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
-            --url https://api.github.com/repos/ZhongpinWang/workflow-test/actions/workflows/callee/dispatches \
             --data '{"ref":"main","inputs":{}}'
           echo ${{ secrets.GITHUB_TOKEN }}
