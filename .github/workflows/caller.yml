@@ -28,4 +28,4 @@ jobs:
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             https://api.github.com/repos/ZhongpinWang/workflow-test/actions/workflows/callee/dispatches \
             -d '{"ref":"main","inputs":{}}'
-          echo ${{ GITHUB_TOKEN }}
+          echo ${{ secrets.GITHUB_TOKEN }}
