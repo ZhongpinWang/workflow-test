@@ -25,7 +25,6 @@ jobs:
           curl --request POST \
             --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/callee/dispatches \
             --header 'accept: application/vnd.github+json' \ 
-            --header 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'Authorization: token ${{ secrets.PAT }}' \
             --data '{"ref":"main","inputs":{}}'
           echo ${{ github.repository }}
-          echo ${{ secrets.GITHUB_TOKEN }}
