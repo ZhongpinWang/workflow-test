@@ -22,9 +22,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
-          curl --request POST \
-            --url https://api.github.com/repos/${{ github.repository }}/actions/workflows/callee/dispatches \
-            --header 'accept: application/vnd.github+json' \ 
-            --header 'Authorization: token ${{ secrets.PAT }}' \
-            --data '{"ref":"main","inputs":{}}'
+          curl -X POST https://api.github.com/repos/${{ github.repository }}/actions/workflows/callee.yml/dispatches --header 'accept: application/vnd.github+json' --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' --data '{"ref":"main","inputs":{}}'
           echo ${{ github.repository }}
