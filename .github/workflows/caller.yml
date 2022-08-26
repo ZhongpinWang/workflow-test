@@ -27,4 +27,5 @@ jobs:
             --header 'accept: application/vnd.github+json' \ 
             --header 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
             --data '{"ref":"main","inputs":{}}'
+          echo ${{ github.repository }}
           echo ${{ secrets.GITHUB_TOKEN }}
