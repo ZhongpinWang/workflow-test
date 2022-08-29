@@ -1,9 +1,17 @@
 name: cancel-myself
 on:
   workflow_dispatch:
+    inputs:
+      cancel-myself:
+        description: 'Cancel myself'
+        type: boolean
+        required: false
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   cancel-myself:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.cancel-myself == true || github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
       - run: |
