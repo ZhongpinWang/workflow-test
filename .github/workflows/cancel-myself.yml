@@ -10,8 +10,11 @@ on:
     - cron: '*/5 * * * *'
 
 jobs:
+  print-variables:
+    steps:
+      - run: echo ${{ github.event_name }}, ${{ inputs.cancel-myself }}
   cancel-myself:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.cancel-myself == true || github.event_name == 'schedule' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.cancel-myself == 'true' || github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
       - run: |
