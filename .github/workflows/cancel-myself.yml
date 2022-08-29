@@ -23,7 +23,7 @@ jobs:
     steps:
       - id: date-check
         name: Check if latest commit is within 24 hrs
-        run: echo '::set-output name=is-canceled::true'
+        run: echo '::set-output name=is-canceled::false'
   cancel-myself:
     if: ${{ needs.cancel-myself-pre-check.outputs.is-canceled == 'false' }}
     runs-on: ubuntu-latest
