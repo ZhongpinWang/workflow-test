@@ -13,9 +13,10 @@ jobs:
   print-variables:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event_name }}, ${{ inputs.cancel-myself }}
+      - name: Print variables
+        run: echo ${{ github.event_name }}, ${{ inputs.cancel-myself }}
   cancel-myself:
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.cancel-myself == 'true' || github.event_name == 'schedule' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.cancel-myself || github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
       - run: |
