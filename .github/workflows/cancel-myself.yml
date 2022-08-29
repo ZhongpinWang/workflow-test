@@ -6,8 +6,8 @@ on:
         description: 'Cancel myself'
         type: boolean
         required: false
-  schedule:
-    - cron: '*/5 * * * *'
+#   schedule:
+#     - cron: '*/5 * * * *'
 
 jobs:
   print-variables:
